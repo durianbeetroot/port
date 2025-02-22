@@ -4,28 +4,28 @@ import { useState } from "react"
 
 const projects = [
   {
-    title: "E-commerce Platform",
-    description: "A full-featured online store with cart and checkout functionality",
+    title: "Artificial Company Web Portfolio with 3D Model",
+    description: "Developed a responsive website with 3D product displays, category-based filtering, and pagination",
     image: "/img/pic3.png",
-    link: "https://ecommerce-example.com",
-    github: "https://github.com/username/ecommerce",
-    tech: ["Next.js", "React", "Tailwind CSS", "MongoDB"],
+    link: "https://woody-wood.web.app/",
+    github: "https://github.com/durianbeetroot/woody",
+    tech: ["Next.js", "JavaScript", "Tailwind", "Bootstrap", "Three.js", "Firebase", "Firestore"],
   },
   {
-    title: "Social Media Dashboard",
-    description: "Analytics dashboard for social media management",
+    title: "Analytical Website with Interactive Graphs",
+    description: "Imitated internal tracking for a coffee company, tracking 12 months of data and providing insights on coffee preferences, gross income, cost, profits, and other business metrics.",
     image: "/img/pic2.png",
-    link: "https://dashboard-example.com",
-    github: "https://github.com/username/dashboard",
-    tech: ["Next.js", "React", "Chart.js", "PostgreSQL"],
+    link: " https://coffery-app.web.app/",
+    github: "https://github.com/durianbeetroot/coffery-app",
+    tech: ["JavaScript", "React", "Express.js","D3 js", "Bootstrap", "Firebase", "Firestore"],
   },
   {
-    title: "AI Chat Application",
-    description: "Real-time chat application with AI-powered responses",
+    title: "Mobile Friendly Construction Company Website",
+    description: "Created a portfolio website for a construction company with a mobile-friendly responsive design accessible from any device.",
     image: "/img/pic1.png",
-    link: "https://chat-example.com",
-    github: "https://github.com/username/chat",
-    tech: ["Next.js", "React", "WebSocket", "OpenAI"],
+    link: "https://lift-app-fa4ee.web.app/",
+    github: "https://github.com/durianbeetroot/lift-app",
+    tech: ["JavaScript", "React", "Tailwind", "Firebase"],
   },
 ]
 
