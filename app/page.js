@@ -6,7 +6,7 @@ const projects = [
   {
     title: "E-commerce Platform",
     description: "A full-featured online store with cart and checkout functionality",
-    image: "/placeholder.svg?height=200&width=400",
+    image: "/img/pic3.png",
     link: "https://ecommerce-example.com",
     github: "https://github.com/username/ecommerce",
     tech: ["Next.js", "React", "Tailwind CSS", "MongoDB"],
@@ -14,7 +14,7 @@ const projects = [
   {
     title: "Social Media Dashboard",
     description: "Analytics dashboard for social media management",
-    image: "/placeholder.svg?height=200&width=400",
+    image: "/img/pic2.png",
     link: "https://dashboard-example.com",
     github: "https://github.com/username/dashboard",
     tech: ["Next.js", "React", "Chart.js", "PostgreSQL"],
@@ -22,18 +22,10 @@ const projects = [
   {
     title: "AI Chat Application",
     description: "Real-time chat application with AI-powered responses",
-    image: "/placeholder.svg?height=200&width=400",
+    image: "/img/pic1.png",
     link: "https://chat-example.com",
     github: "https://github.com/username/chat",
     tech: ["Next.js", "React", "WebSocket", "OpenAI"],
-  },
-  {
-    title: "Task Management System",
-    description: "Collaborative task management with real-time updates",
-    image: "/placeholder.svg?height=200&width=400",
-    link: "https://tasks-example.com",
-    github: "https://github.com/username/tasks",
-    tech: ["Next.js", "React", "Redux", "Firebase"],
   },
 ]
 
@@ -62,7 +54,7 @@ export default function Page() {
         <nav className="border-b dark:border-gray-800">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between h-16 items-center">
-              <h1 className="text-xl font-bold">My Portfolio</h1>
+              <h1 className="text-xl font-bold">Projects Portfolio</h1>
               <div className="hidden md:flex items-center space-x-4">
                 <button onClick={toggleDarkMode} className="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800">
                   {isDarkMode ? "🌞" : "🌙"}
@@ -72,7 +64,7 @@ export default function Page() {
                 className="md:hidden p-2 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               >
-                ☰
+                ☰ Filter
               </button>
             </div>
           </div>
