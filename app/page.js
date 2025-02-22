@@ -1,101 +1,181 @@
-import Image from "next/image";
+"use client"
 
-export default function Home() {
+import { useState } from "react"
+
+const projects = [
+  {
+    title: "E-commerce Platform",
+    description: "A full-featured online store with cart and checkout functionality",
+    image: "/placeholder.svg?height=200&width=400",
+    link: "https://ecommerce-example.com",
+    github: "https://github.com/username/ecommerce",
+    tech: ["Next.js", "React", "Tailwind CSS", "MongoDB"],
+  },
+  {
+    title: "Social Media Dashboard",
+    description: "Analytics dashboard for social media management",
+    image: "/placeholder.svg?height=200&width=400",
+    link: "https://dashboard-example.com",
+    github: "https://github.com/username/dashboard",
+    tech: ["Next.js", "React", "Chart.js", "PostgreSQL"],
+  },
+  {
+    title: "AI Chat Application",
+    description: "Real-time chat application with AI-powered responses",
+    image: "/placeholder.svg?height=200&width=400",
+    link: "https://chat-example.com",
+    github: "https://github.com/username/chat",
+    tech: ["Next.js", "React", "WebSocket", "OpenAI"],
+  },
+  {
+    title: "Task Management System",
+    description: "Collaborative task management with real-time updates",
+    image: "/placeholder.svg?height=200&width=400",
+    link: "https://tasks-example.com",
+    github: "https://github.com/username/tasks",
+    tech: ["Next.js", "React", "Redux", "Firebase"],
+  },
+]
+
+// Get unique tech stack items
+const allTechStacks = [...new Set(projects.flatMap((project) => project.tech))]
+
+export default function Page() {
+  const [selectedTech, setSelectedTech] = useState("All")
+  const [isDarkMode, setIsDarkMode] = useState(true)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  // Filter projects based on selected tech
+  const filteredProjects =
+    selectedTech === "All" ? projects : projects.filter((project) => project.tech.includes(selectedTech))
+
+  // Toggle dark mode
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode)
+    document.documentElement.classList.toggle("dark")
+  }
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className={`min-h-screen ${isDarkMode ? "dark" : ""}`}>
+      <div className="dark:bg-gray-900 min-h-screen dark:text-gray-100">
+        {/* Navigation */}
+        <nav className="border-b dark:border-gray-800">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between h-16 items-center">
+              <h1 className="text-xl font-bold">My Portfolio</h1>
+              <div className="hidden md:flex items-center space-x-4">
+                <button onClick={toggleDarkMode} className="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800">
+                  {isDarkMode ? "🌞" : "🌙"}
+                </button>
+              </div>
+              <button
+                className="md:hidden p-2 hover:bg-gray-200 dark:hover:bg-gray-800 rounded-lg"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              >
+                ☰
+              </button>
+            </div>
+          </div>
+        </nav>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        {/* Mobile menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden border-b dark:border-gray-800 p-4">
+            <div className="flex flex-wrap gap-2">
+              <button
+                className={`px-4 py-2 rounded-lg ${
+                  selectedTech === "All" ? "bg-blue-500 text-white" : "bg-gray-200 dark:bg-gray-800"
+                }`}
+                onClick={() => setSelectedTech("All")}
+              >
+                All
+              </button>
+              {allTechStacks.map((tech) => (
+                <button
+                  key={tech}
+                  className={`px-4 py-2 rounded-lg ${
+                    selectedTech === tech ? "bg-blue-500 text-white" : "bg-gray-200 dark:bg-gray-800"
+                  }`}
+                  onClick={() => setSelectedTech(tech)}
+                >
+                  {tech}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          {/* Desktop Filter buttons */}
+          <div className="hidden md:flex flex-wrap gap-2 mb-8">
+            <button
+              className={`px-4 py-2 rounded-lg ${
+                selectedTech === "All" ? "bg-blue-500 text-white" : "bg-gray-200 dark:bg-gray-800"
+              }`}
+              onClick={() => setSelectedTech("All")}
+            >
+              All
+            </button>
+            {allTechStacks.map((tech) => (
+              <button
+                key={tech}
+                className={`px-4 py-2 rounded-lg ${
+                  selectedTech === tech ? "bg-blue-500 text-white" : "bg-gray-200 dark:bg-gray-800"
+                }`}
+                onClick={() => setSelectedTech(tech)}
+              >
+                {tech}
+              </button>
+            ))}
+          </div>
+
+          {/* Projects grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredProjects.map((project) => (
+              <div
+                key={project.title}
+                className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:scale-105 transition-transform duration-200"
+              >
+                <img
+                  src={project.image || "/placeholder.svg"}
+                  alt={project.title}
+                  className="w-full h-48 object-cover"
+                />
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-400 mb-4">{project.description}</p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tech.map((tech) => (
+                      <span key={tech} className="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full text-sm">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex justify-between">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+                    >
+                      GitHub
+                    </a>
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+                    >
+                      Live Demo
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </main>
+      </div>
     </div>
-  );
+  )
 }
+
