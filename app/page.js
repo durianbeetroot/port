@@ -4,6 +4,14 @@ import { useState } from "react"
 
 const projects = [
   {
+    title: "Mobile Friendly Food Ecommerce",
+    description: "Created a public Ecommerce website that has been accessed by 2000 people with mobile-responsive UI and geo-location finder that has been connected to Whatsapp",
+    image: "/img/pic4.png",
+    link: "https://meat-sagito.pages.dev/",
+    github: "",
+    tech: ["JavaScript", "Next.js", "Tailwind", "Cloudflare"],
+  },
+  {
     title: "Artificial Company Web Portfolio with 3D Model",
     description: "Developed a responsive website with 3D product displays, category-based filtering, and pagination",
     image: "/img/pic3.png",
