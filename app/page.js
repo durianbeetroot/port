@@ -4,10 +4,18 @@ import { useState } from "react"
 
 const projects = [
   {
+    title: "Simple Asymmetric Cat Portfolio Website",
+    description: "Collaborate on developing an asymmetric mobile responsive cat oriented website",
+    image: "/img/pic5.png",
+    link: "https://loving-cats-club.pages.dev/",
+    github: "https://github.com/durianbeetroot/loving-cats-club",
+    tech: ["TypeScript", "Next.js", "Tailwind", "Cloudflare"],
+  },
+  {
     title: "Mobile Friendly Food Ecommerce",
     description: "Created a public Ecommerce website that has been accessed by 2000 people with mobile-responsive UI and geo-location finder that has been connected to Whatsapp",
     image: "/img/pic4.png",
-    link: "https://meat-sagito.pages.dev/",
+    link: "https://real-meat.pages.dev/",
     github: "",
     tech: ["JavaScript", "Next.js", "Tailwind", "Cloudflare"],
   },
@@ -39,6 +47,7 @@ const projects = [
 
 // Get unique tech stack items
 const allTechStacks = [...new Set(projects.flatMap((project) => project.tech))]
+  .sort((a, b) => a.localeCompare(b));
 
 export default function Page() {
   const [selectedTech, setSelectedTech] = useState("All")
