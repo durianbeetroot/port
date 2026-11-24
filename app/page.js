@@ -4,6 +4,14 @@ import { useState } from "react"
 
 const projects = [
   {
+    title: "Guess the Country",
+    description: "Built an interactive geography guessing game with a rotatable 3D globe where players tap countries to guess them, spend points on continent and radius hints, and track their score across multiple visual themes.",
+    image: "/img/pic6.png",
+    link: "https://guess-country-yo.pages.dev/",
+    github: "",
+    tech: ["TypeScript", "Next.js", "Tailwind", "Three.js", "Cloudflare"],
+  },
+  {
     title: "Simple Asymmetric Cat Portfolio Website",
     description: "Collaborate on developing an asymmetric mobile responsive cat oriented website",
     image: "/img/pic5.png",
@@ -161,14 +169,23 @@ export default function Page() {
                     ))}
                   </div>
                   <div className="flex justify-between">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
-                    >
-                      GitHub
-                    </a>
+                    {project.github ? (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+                      >
+                        GitHub
+                      </a>
+                    ) : (
+                      <button
+                        type="button"
+                        className="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+                      >
+                        GitHub
+                      </button>
+                    )}
                     <a
                       href={project.link}
                       target="_blank"
